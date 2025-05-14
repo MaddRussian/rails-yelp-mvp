@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Restaurants</h1>
+  <div class="cards">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card-product">
+        <%#= image_tag "#{restaurant.image}.jpg, alt: "text" %>
+        <div class="card-product-infos">
+          <h2><%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-decoration-none text-black' %></h2>
+          <p><%= restaurant.address %></p>
+          <p><%= restaurant.phone_number %></p>
+        <% end%>
+      </div>
+    </div>
+  </div>
+</div>

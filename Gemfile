@@ -65,3 +65,5 @@ gem "simple_form"
 gem "ostruct"
 
 gem "faker"
+
+gem "sassc", '~> 2.4'

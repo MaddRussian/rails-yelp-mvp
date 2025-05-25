@@ -3,7 +3,7 @@ Restaurant.destroy_all
 
 puts "Creating restaurants...."
 
-5.times do
+10.times do
   # inside of the seeds, you can use Pet.create! to stop the seeds if it fails
   Restaurant.create!(
     name: Faker::Restaurant.unique.name,

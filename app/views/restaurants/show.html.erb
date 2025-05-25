@@ -1,6 +1,51 @@
+<%= render "shared/navbar" %>
 <div class="container">
-  <h1><%= @restaurant.name %></h1>
-  <div class="card">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1><%= @restaurant.name %></h1>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <th scope="row">Address 📍</th>
+            <td><%= @restaurant.address %></td>
+          </tr>
+          <tr>
+            <th scope="row">Phone Number 📞</th>
+            <td><%= @restaurant.phone_number %></td>
+          </tr>
+          <tr>
+            <th scope="row">Category 👨🏻‍🍳</th>
+            <td><%= @restaurant.category %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div class="reviews col-6">
+          <h2>Past Reviews</h2>
+          <div class="list-group">
+            <% @restaurant.reviews.each do |review| %>
+              <li class="list-group-item">
+                <small>
+                  <% count = 0 %>
+                  <% 5.times do %>
+                    <% if review.rating > count %>
+                      <i class="fa-solid fa-star"></i>
+                    <% else %>
+                      <i class="fa-regular fa-star"></i>
+                    <% end %>
+                    <% count += 1 %>
+                  <% end %>
+                </small>
+                <p><%= "⭐️" * review.rating %></p>
+                <p><%= review.content %></p>
+              </li>
+            <% end %>
+          </div>
+        </div>
+        <div class="new-review col-6 my-2">
+          <%= render "form" %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
